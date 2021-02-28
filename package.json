@@ -1,0 +1,21 @@
+{
+  "name": "data-feeder-server",
+  "version": "1.0.0",
+  "description": "Backend server for data-feeder server",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "author": "Arpit Bansal",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-link-context": "^1.0.20",
+    "apollo-server": "^2.21.0",
+    "graphql": "^15.5.0",
+    "mongoose": "^5.11.18",
+    "unsplash-js": "^7.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
