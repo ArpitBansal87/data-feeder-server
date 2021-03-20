@@ -1,17 +1,19 @@
 import { createApi } from 'unsplash-js';
-import Background from '../models/background';
+
+import config from '../config';
 
 require('isomorphic-fetch');
 
 const serverApi = createApi({
-  accessKey: 'mxCukNyN-nc6E7Mwtgzy9by5gBe0dvAJ0GuuzL1SZgQ',
+  accessKey: config.ACCESS_KEY,
 });
 
 const photoObj = async () => serverApi.photos.getRandom({
-  query: 'Wallpapers, Nature',
+  query: config.UNSPLASH_BACKGROUND_TYPE,
+  orientation: 'landscape',
 });
 
-const runBackgroundProgram = () => {
+const runBackgroundProgram = (timeInterval, dbConnection) => {
   setInterval(async () => {
     const returnObj = await photoObj()
       .then((result) => {
@@ -23,13 +25,14 @@ const runBackgroundProgram = () => {
       })
       .catch((err) => console.log(err));
 
-    const newBackgroundEntry = new Background({
+    // eslint-disable-next-line new-cap
+    const newBackgroundEntry = new dbConnection.backgroundDB.models.background({
       ...returnObj,
       createdAt: new Date().toISOString(),
     });
 
     await newBackgroundEntry.save();
-  }, 1200000);
+  }, timeInterval);
 };
 
 export default runBackgroundProgram;
