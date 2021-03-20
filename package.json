@@ -4,18 +4,28 @@
   "description": "Backend server for data-feeder server",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "npm run test",
+    "start": "node index",
+    "dev": "nodemon --exec babel-node index.js"
   },
   "author": "Arpit Bansal",
   "license": "ISC",
   "dependencies": {
     "apollo-link-context": "^1.0.20",
     "apollo-server": "^2.21.0",
+    "dotenv": "^8.2.0",
     "graphql": "^15.5.0",
+    "isomorphic-fetch": "^3.0.0",
     "mongoose": "^5.11.18",
     "unsplash-js": "^7.0.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/node": "^7.13.0",
+    "@babel/preset-env": "^7.13.8",
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.7"
   }
 }
