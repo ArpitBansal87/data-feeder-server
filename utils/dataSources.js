@@ -2,10 +2,11 @@ import mongoose from 'mongoose';
 import config from '../config';
 
 const connectionBackground = mongoose.createConnection(
-  config.MONGODB_CONNECTION_STRING,
+  config.DEV_MONGODB_CONNECTION_STRING,
   { useNewUrlParser: true },
 );
 
 connectionBackground.model('background', require('../models/background'));
+connectionBackground.model('users', require('../models/users'));
 
-export default { backgroundDB: connectionBackground };
+export default { devDB: connectionBackground };

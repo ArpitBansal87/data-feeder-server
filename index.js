@@ -11,7 +11,9 @@ const pubSub = new PubSub();
 
 const PORT = process.env.PORT || 5000;
 
-runBackgroundProgram(process.env.BACKGROUND_TIME, getConnections);
+if (process.env.REQUIRES_BACKGROUND_PROCESS) {
+  runBackgroundProgram(process.env.BACKGROUND_TIME, getConnections);
+}
 
 mongoose.set('useUnifiedTopology', true);
 
