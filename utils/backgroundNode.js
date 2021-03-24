@@ -26,7 +26,7 @@ const runBackgroundProgram = (timeInterval, dbConnection) => {
       .catch((err) => console.log(err));
 
     // eslint-disable-next-line new-cap
-    const newBackgroundEntry = new dbConnection.backgroundDB.models.background({
+    const newBackgroundEntry = new dbConnection.devDB.models.background({
       ...returnObj,
       createdAt: new Date().toISOString(),
     });
