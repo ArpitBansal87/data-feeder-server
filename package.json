@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test",
-    "start": "node index",
-    "dev": "nodemon --exec babel-node index.js"
+    "start": "nodemon --exec babel-node index.js"
   },
   "author": "Arpit Bansal",
   "license": "ISC",
